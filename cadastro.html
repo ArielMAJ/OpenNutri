@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <!-- Estilos externos -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Título principal -->
+        <header>
+            <h1>Cadastro de Usuário</h1>
+        </header>
+
+        <!-- Formulário de Cadastro -->
+        <main>
+            <form id="formCadastro">
+                <!-- Idade -->
+                <div class="form-group">
+                    <label for="idade">Idade:</label>
+                    <input type="number" id="idade" name="idade" min="0" max="120" required>
+                </div>
+
+                <!-- Peso -->
+                <div class="form-group">
+                    <label for="peso">Peso (kg):</label>
+                    <input type="number" id="peso" name="peso" step="0.1" required>
+                </div>
+
+                <!-- Altura -->
+                <div class="form-group">
+                    <label for="altura">Altura (cm):</label>
+                    <input type="number" id="altura" name="altura" step="1" required>
+                </div>
+
+                <!-- Gênero -->
+                <div class="form-group">
+                    <label for="genero">Gênero:</label>
+                    <select id="genero" name="genero" required>
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+
+                <!-- Restrições Alimentares -->
+                <fieldset>
+                    <legend>Possui alguma restrição alimentar?</legend>
+                    <label>
+                        <input type="checkbox" name="restricoesAlimentares" value="Vegetariano"> Vegetariano/a
+                    </label>
+                    <label>
+                        <input type="checkbox" name="restricoesAlimentares" value="Vegano"> Vegano/a
+                    </label>
+                    <label>
+                        <input type="checkbox" name="restricoesAlimentares" value="IntoleranciaLactose"> Intolerância à Lactose
+                    </label>
+                    <label>
+                        <input type="checkbox" name="restricoesAlimentares" value="IntoleranciaGluten"> Intolerância ao Glúten
+                    </label>
+                </fieldset>
+
+                <!-- Alergias -->
+                <fieldset>
+                    <legend>Possui alguma alergia?</legend>
+                    <label for="alergias">Descreva:</label>
+                    <textarea id="alergias" name="alergias" rows="3" placeholder="Digite aqui..."></textarea>
+                </fieldset>
+
+                <!-- Nível de Atividade Física -->
+                <div class="form-group">
+                    <label for="atividade">Nível de Atividade Física:</label>
+                    <select id="atividade" name="atividade" required>
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="sedentario">Sedentário</option>
+                        <option value="leve">Leve</option>
+                        <option value="moderado">Moderado</option>
+                        <option value="intenso">Intenso</option>
+                    </select>
+                </div>
+
+                <!-- Botão de Enviar -->
+                <div class="form-group">
+                    <button type="submit">Cadastrar</button>
+                </div>
+            </form>
+        </main>
+
+        <!-- Resultado -->
+        <footer>
+            <p id="resultado"></p>
+        </footer>
+    </div>
+
+    <!-- Scripts externos -->
+    <script src="scripts/scriptCadastro.js"></script>
+</body>
+
+</html>

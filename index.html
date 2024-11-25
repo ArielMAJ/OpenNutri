@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-right button {
+            margin-left: 10px;
+            padding: 8px 12px;
+            background-color: white;
+            color: #007BFF;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .header-right button:hover {
+            background-color: #f0f0f0;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f9;
+        }
+
+        .panel {
+            width: 90%;
+            max-width: 600px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .panel h2 {
+            margin-bottom: 20px;
+        }
+
+        .panel button {
+            margin: 10px 5px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .panel button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Página Inicial</h1>
+        <div class="header-right" id="user-actions">
+            <!-- Conteúdo dinâmico via script -->
+        </div>
+    </header>
+    <main>
+        <div class="panel">
+            <h2>O que você deseja?</h2>
+            <button onclick="alert('Opção 1 selecionada')">Opção 1</button>
+            <button onclick="alert('Opção 2 selecionada')">Opção 2</button>
+            <button onclick="alert('Opção 3 selecionada')">Opção 3</button>
+        </div>
+    </main>
+    <script>
+        // Simula o estado de login do usuário
+        const user = {
+            isLoggedIn: true, // Altere para false para simular um usuário não logado
+            name: "João" // Nome do usuário logado
+        };
+
+        const userActions = document.getElementById("user-actions");
+
+        if (user.isLoggedIn) {
+            // Usuário logado
+            userActions.innerHTML = `
+                <span>Seja bem-vindo, ${user.name}</span>
+                <button onclick="editAccount()">Editar Conta</button>
+                <button onclick="logout()">Deslogar</button>
+            `;
+        } else {
+            // Usuário não logado
+            userActions.innerHTML = `
+                <button onclick="login()">Login</button>
+            `;
+        }
+
+        function login() {
+            alert("Redirecionando para a página de login...");
+        }
+
+        function logout() {
+            alert("Você foi deslogado.");
+            // Aqui você pode redirecionar para a página de login ou atualizar o estado de login
+        }
+
+        function editAccount() {
+            alert("Redirecionando para a página de edição de conta...");
+        }
+    </script>
+</body>
+</html>

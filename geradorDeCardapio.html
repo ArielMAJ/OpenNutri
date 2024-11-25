@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Preferência Alimentar</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <style>
+        /* Estilos básicos para alinhar os campos */
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label, input {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .row-direction {
+            font-size: 14px;
+            display: flex;
+            flex-direction: row;
+            background-color: #f9f9f9;
+        }
+
+        /* Esconde os campos inicialmente */
+        .hidden {
+            display: none;
+        }
+        .hidden {
+        display: none;
+        }
+        .alergia-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .alergia-item input {
+           flex: 1;
+            margin-right: 10px;
+        }
+        .alergia-item button {
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .alergia-item button:hover {
+            background-color: #0056b3;
+        }        
+    </style>
+</head>
+<body>
+    <!-- Quantidade de Refeições -->
+    <div class="container">
+        <h1>Preferências e Restrições Alimentares</h1>
+        <!-- Restrições Alimentares -->
+        <fieldset class="container row-direction">
+            <legend>Possui alguma restrição alimentar?</legend>
+            <label>
+                <input type="checkbox" name="restricoesAlimentares" value="Vegetariano"> Vegetariano/a
+            </label>
+            <label>
+                <input type="checkbox" name="restricoesAlimentares" value="Vegano"> Vegano/a
+            </label>
+            <label>
+                <input type="checkbox" name="restricoesAlimentares" value="IntoleranciaLactose"> Intolerância à Lactose
+            </label>
+            <label>
+                <input type="checkbox" name="restricoesAlimentares" value="IntoleranciaGluten"> Intolerância ao Glúten
+            </label>
+        </fieldset>       
+
+        <!-- Alergias -->
+        <fieldset>
+            <legend>Possui alguma alergia?</legend>
+            <label>
+                <input type="radio" name="temAlergia" value="sim"> Sim
+            </label>
+            <label>
+                <input type="radio" name="temAlergia" value="nao"> Não
+            </label>
+        
+            <div id="alergias-container" class="hidden">
+                <div class="alergia-item">
+                    <label for="alergias-1">Descreva:</label>
+                    <input type="text" id="alergias-1" name="alergias[]" placeholder="Digite aqui..." />
+                    <button type="button" class="add-alergia">Adicionar</button>
+                </div>
+            </div>
+        </fieldset>
+              
+        <label for="quantidadeRefeicoes">Quantidade de Refeições por dia:</label>
+        <select id="quantidadeRefeicoes" name="quantidadeRefeicoes" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select>
+
+        <label for="quantidadeOpcoes">Quantidade de opções por refeição:</label>
+        <select id="quantidadeOpcoes" name="quantidadeOpcoes" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+            
+        <p>Escreva de 5 a 10 alimentos de sua preferência para serem utilizados em sua dieta.</p>
+
+        <form id="formPreferenciaAlimentos">
+            <div id="listaAlimentos"></div>
+            <button type="submit">Salvar Preferências</button>
+        </form>
+    </div>
+    <script src="scripts/scriptCardapio.js" defer></script>
+</body>
+</html>
